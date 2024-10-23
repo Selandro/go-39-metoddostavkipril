@@ -76,8 +76,7 @@ jobs:
           echo "Docker Hub Password: ${{ secrets.DOCKER_HUB_PASSWORD }}" # Не делайте этого в продакшене! 
 
       - name: Log in to Docker Hub
-        run: echo "$secrets.DOCKER_HUB_PASSWORD" | docker login -u "$secrets.DOCKER_HUB_USERNAME" --password-stdin
-
+        run: echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
       - name: Build Docker image
         run: docker build -t "${{ secrets.DOCKER_HUB_USERNAME }}/module-39:${{ env.ref_name }}" .
 

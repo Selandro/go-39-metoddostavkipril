@@ -39,7 +39,7 @@ jobs:
           go-version: 1.15
 
       - name: Run tests
-        run: echo "No tests!"
+        run: go test ./...
 
   lint:
     runs-on: ubuntu-latest

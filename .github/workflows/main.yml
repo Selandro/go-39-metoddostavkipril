@@ -70,13 +70,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Debug GitHub ref
-        run: echo "GitHub ref: ${{ github.ref }}"
-
-      - name: Extract branch or tag name
-        id: get_ref_name
-        run: echo "ref_name=${GITHUB_REF##*/}" >> $GITHUB_ENV
-
       - name: Log in to Docker Hub
         run: echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
 
